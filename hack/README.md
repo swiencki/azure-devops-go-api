@@ -3,20 +3,39 @@ This repository contains Golang APIs for interacting with and managing Azure Dev
 ## Get started
 To use the API, establish a connection using a [personal access token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) and the URL to your Azure DevOps organization. Then get a client from the connection and make API calls.
 
-List of enviromental variables:
+## pipelines.go 
+
+### Usage
+Run pipelines.go
+```bash
+$ [env_variable1 env_variable2] go run hack/pipelines.go
+```
+Example
+```bash
+$  AZURE_DEVOPS_EXT_PAT=foo ADO_DEFID=123 go run hack/pipelines.go
+```
+### Env
+List of enviromental variables
 ```Golang
-    ADO_ORG='' Organization Url *string | default https://dev.azure.com/msazure/
-    DO_PROJECT='' Project Name *string | default AzureRedHatOpenShift
-    AZURE_DEVOPS_EXT_PAT='' Personal Access Token *string | default None
-    ADO_DEFID='' Comma-delimited list of Definition IDs *int | default None    
+ADO_ORG='' Organization Url *string | default https://dev.azure.com/ure/
+DO_PROJECT='' Project Name *string | default AzureRedHatOpenShift
+AZURE_DEVOPS_EXT_PAT='' Personal Access Token *string | default None
+ADO_DEFID='' Comma-delimited list of Definition IDs *int | default None    
 ```
 
-## Usage
-Run build.go:
+## boards.go 
+
+### Usage
+Run boards.go
 ```bash
-$ [env_variable1 env_variable2] go run hack/build.go
+$ [env_variable1 env_variable2] go run hack/boards.go
 ```
-Example:
+Example
 ```bash
-$  AZURE_DEVOPS_EXT_PAT=foo ADO_DEFID=123 go run hack/build.go
+$  AZURE_DEVOPS_EXT_PAT=foo go run hack/boards.go
+```
+### Env
+List of enviromental variables:
+```Golang
+   TBD
 ```
