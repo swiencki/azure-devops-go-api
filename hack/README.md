@@ -1,4 +1,4 @@
-# Azure DevOps Golang API scripts
+# Azure DevOps Golang API Scripts
 This repository contains Golang API scripts for interacting with and managing Azure DevOps.
 
 To learn more about the Azure DevOps Extension for Azure CLI, visit the [Microsoft/azure-devops-cli-extension](https://github.com/Microsoft/azure-devops-cli-extension) repo and [azure-devops-go-api](https://github.com/Microsoft/azure-devops-go-api) repo.
@@ -14,16 +14,29 @@ $ [env_variable1 env_variable2] go run hack/pipelines.go
 ```
 Example
 ```bash
-$  AZURE_DEVOPS_EXT_PAT=foo ADO_DEFID=123 go run hack/pipelines.go
+$  AZURE_DEVOPS_EXT_PAT=foo ADO_DEFID=123 ADO_TIME=60 go run hack/pipelines.go
 ```
-### Env
-List of enviromental variables
+### Enviromental Variables
+
+Gathers all logs from a pipline over a historical time 
 ```Golang
+AZURE_DEVOPS_EXT_PAT='' // Personal Access Token *string | default None | Required
 ADO_ORG='' // Organization Url *string | default https://dev.azure.com/msazure/
 ADO_PROJECT='' // Project Name *string | default AzureRedHatOpenShift
-AZURE_DEVOPS_EXT_PAT='' // Personal Access Token *string | default None | Required
 ADO_DEFID='' // Comma-delimited list of Definition IDs *int | default None | Required
+ADO_TIME='' // Historical time window in minutes *int | default none | Required
 ```
+or
+
+Gathers logs from a select run
+
+```Golang
+AZURE_DEVOPS_EXT_PAT='' // Personal Access Token *string | default None | Required
+ADO_ORG='' // Organization Url *string | default https://dev.azure.com/msazure/
+ADO_PROJECT='' // Project Name *string | default AzureRedHatOpenShift
+ADO_BUILDID='' // BuildID of run *int | default none | Required
+```
+
 
 ## boards.go 
 
